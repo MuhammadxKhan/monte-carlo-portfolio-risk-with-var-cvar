@@ -18,9 +18,7 @@ The project downloads historical closing prices for a selected basket of stocks 
 
 These prices are converted into daily percentage returns using:
 
-\[
-R_t = \frac{P_t - P_{t-1}}{P_{t-1}}
-\]
+![equation](https://latex.codecogs.com/png.image?\dpi{110}R_t=\frac{P_t-P_{t-1}}{P_{t-1})
 
 ### 2. Estimating model inputs
 From the historical return series, the code calculates:
