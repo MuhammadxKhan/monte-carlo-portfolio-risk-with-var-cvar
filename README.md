@@ -18,7 +18,7 @@ The project downloads historical closing prices for a selected basket of stocks 
 
 These prices are converted into daily percentage returns using:
 
-![equation](https://latex.codecogs.com/png.image?\dpi{110}R_t=\frac{P_t-P_{t-1}}{P_{t-1})
+![equation](https://latex.codecogs.com/png.image?\dpi{120}\color{white}R_t=\frac{P_t-P_{t-1}}{P_{t-1})
 
 ### 2. Estimating model inputs
 From the historical return series, the code calculates:
@@ -30,9 +30,7 @@ These statistics are then used as inputs into the simulation.
 ### 3. Generating correlated returns
 To simulate dependent asset returns, the covariance matrix is factorised using Cholesky decomposition:
 
-\[
-\Sigma = LL^T
-\]
+![eq](https://latex.codecogs.com/png.image?\dpi{120}\bg{black}\color{white}\Sigma=LL^T)
 
 A matrix of standard normal random variables is generated and transformed to produce correlated return shocks. These shocks are added to the mean return vector to obtain simulated daily returns for each asset.
 
@@ -76,9 +74,3 @@ This model makes several simplifying assumptions:
 - test alternative return distributions with fatter tails
 - add portfolio optimisation rather than random weights
 - include stress testing and scenario analysis
-
-## Conclusion
-This project demonstrates how Monte Carlo simulation can be used to model portfolio uncertainty and estimate downside risk measures such as VaR and CVaR. It provides a practical introduction to stochastic portfolio modelling, correlated asset simulation, and basic quantitative risk analysis.
-
-## Author
-Muhammad Khan
