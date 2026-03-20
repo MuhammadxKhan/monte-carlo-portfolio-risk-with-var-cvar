@@ -13,46 +13,15 @@ The model downloads historical closing price data for a set of stocks, converts 
 - Convert simulated returns into portfolio value paths
 - Estimate portfolio downside risk using VaR and CVaR
 
-## Methodology
+##  Approach
 
-### 1. Historical data
-The project downloads historical closing prices for a selected basket of stocks using `yfinance`.
-
-These prices are converted into daily percentage returns using:
-
-![equation](https://latex.codecogs.com/png.image?\dpi{120}\color{white}R_t=\frac{P_t-P_{t-1}}{P_{t-1})
-
-### 2. Estimating model inputs
-From the historical return series, the code calculates:
-- the mean daily return for each asset
-- the covariance matrix of asset returns
-
-These statistics are then used as inputs into the simulation.
-
-### 3. Generating correlated returns
-To simulate dependent asset returns, the covariance matrix is factorised using Cholesky decomposition:
-
-![eq](https://latex.codecogs.com/png.image?\dpi{120}\bg{black}\color{white}\Sigma=LL^T)
-
-A matrix of standard normal random variables is generated and transformed to produce correlated return shocks. These shocks are added to the mean return vector to obtain simulated daily returns for each asset.
-
-### 4. Portfolio construction
-The code generates a random portfolio weight vector and normalises it so that the weights sum to 1.
-
-Portfolio returns are then computed as the weighted sum of simulated asset returns.
-
-### 5. Portfolio value simulation
-For each simulation, daily portfolio returns are compounded from an initial portfolio value to generate a full portfolio path over time.
-
-The model runs many simulations, producing a distribution of possible future portfolio values.
-
-### 6. Risk measures
-The final simulated portfolio values are used to estimate:
-
-- **Value at Risk (VaR):** the percentile cutoff of the simulated portfolio value distribution at a chosen confidence level
-- **Conditional Value at Risk (CVaR):** the average of outcomes worse than the VaR threshold
-
-These give an estimate of likely downside loss and average tail loss.
+- Retrieved historical price data using yFinance  
+- Converted prices to daily returns  
+- Estimated mean returns and covariance matrix  
+- Generated correlated returns using Cholesky decomposition  
+- Simulated 10,000 portfolio paths over 100 days  
+- Computed portfolio value via compounding  
+- Estimated downside risk using VaR and CVaR
 
 ## Technologies Used
 - Python
