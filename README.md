@@ -4,6 +4,8 @@
 This project implements a Monte Carlo simulation in Python to model possible future paths of a multi-asset portfolio and estimate downside risk using Value at Risk (VaR) and Conditional Value at Risk (CVaR).
 The model downloads historical closing price data for a set of stocks, converts these prices into daily returns, estimates mean returns and the covariance matrix, and then simulates correlated future returns using a multivariate normal framework and Cholesky decomposition.
 
+<img width="948" height="760" alt="image" src="https://github.com/user-attachments/assets/340c43ba-cc96-4418-a935-6373dbe89289" />
+
 ## Objectives
 - Retrieve and process historical market data
 - Estimate average returns and cross-asset covariance
